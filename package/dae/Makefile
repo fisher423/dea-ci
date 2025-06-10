@@ -24,7 +24,7 @@ PKG_BUILD_FLAGS:=no-mips16
 GO_PKG:=github.com/daeuniverse/dae
 GO_PKG_EXCLUDES:=control/kern/tests
 GO_PKG_LDFLAGS_X:= \
-	$(GO_PKG)/cmd.Version=$(PKG_SOURCE_VERSION) \
+	$(GO_PKG)/cmd.Version=$(shell echo $(PKG_SOURCE_VERSION) HEAD | cut -c1-7) \
 	$(GO_PKG)/common/consts.MaxMatchSetLen_=1024
 GO_PKG_TAGS:=trace
 
